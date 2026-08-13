@@ -1,0 +1,155 @@
+============================================================
+MODEL EVALUATION
+============================================================
+
+============================================================
+STARTING DATA PREPARATION
+============================================================
+
+========== DATA INFO ==========
+
+Dataset shape:
+(24783, 2)
+
+Columns:
+['class', 'tweet']
+
+Data types:
+class    int64
+tweet      str
+dtype: object
+
+Missing values:
+class    0
+tweet    0
+dtype: int64
+
+Duplicate rows:
+0
+
+Class distribution:
+class
+0     1430
+1    19190
+2     4163
+Name: count, dtype: int64
+
+Class distribution (%):
+class
+0     5.77
+1    77.43
+2    16.80
+Name: proportion, dtype: float64
+
+========== DATA CLEANING ==========
+Rows before cleaning: 24783
+Rows after cleaning:  24783
+Rows removed:        0
+
+========== TEXT PREPROCESSING ==========
+Text preprocessing completed.
+
+Tokenizer created successfully.
+Vocabulary size: 19766
+
+Maximum sequence length: 29
+Padded data shape: (24781, 29)
+
+Data split completed.
+Training samples: 19824
+Testing samples:  4957
+
+Tokenizer saved to output_private\tokenizer.pkl
+
+============================================================
+DATA PREPARATION COMPLETED
+============================================================
+
+X_train shape: (19824, 29)
+X_test shape:  (4957, 29)
+
+y_train shape: (19824,)
+y_test shape:  (4957,)
+
+Number of classes: 3
+Classes: [np.int64(0), np.int64(1), np.int64(2)]
+
+Maximum sequence length: 29
+
+Tokenizer saved to:
+output_private\tokenizer.pkl
+
+Test data loaded:
+X_test shape: (4957, 29)
+y_test shape: (4957,)
+
+Loading RNN model...
+I0000 00:00:1786639880.492228    8216 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+Loading LSTM model...
+
+============================================================
+RNN EVALUATION
+============================================================
+
+Accuracy:  0.8763
+Precision: 0.8240
+Recall:    0.8763
+F1-Score:  0.8486
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       286
+           1       0.89      0.97      0.93      3838
+           2       0.81      0.75      0.78       833
+
+    accuracy                           0.88      4957
+   macro avg       0.57      0.57      0.57      4957
+weighted avg       0.82      0.88      0.85      4957
+
+Confusion Matrix:
+[[   0  254   32]
+ [   0 3721  117]
+ [   0  210  623]]
+
+============================================================
+LSTM EVALUATION
+============================================================
+
+Accuracy:  0.8574
+Precision: 0.8976
+Recall:    0.8574
+F1-Score:  0.8736
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.28      0.57      0.38       286
+           1       0.96      0.89      0.92      3838
+           2       0.84      0.82      0.83       833
+
+    accuracy                           0.86      4957
+   macro avg       0.69      0.76      0.71      4957
+weighted avg       0.90      0.86      0.87      4957
+
+Confusion Matrix:
+[[ 163  109   14]
+ [ 314 3403  121]
+ [ 106   43  684]]
+
+============================================================
+RNN vs LSTM COMPARISON
+============================================================
+
+Metric                  RNN        LSTM
+---------------------------------------
+Accuracy             0.8763      0.8574
+Precision            0.8240      0.8976
+Recall               0.8763      0.8574
+F1-Score             0.8486      0.8736
+
+============================================================
+BEST MODEL: LSTM
+============================================================
