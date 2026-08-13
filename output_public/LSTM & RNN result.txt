@@ -153,3 +153,282 @@ F1-Score             0.8486      0.8736
 ============================================================
 BEST MODEL: LSTM
 ============================================================
+
+============================================================
+STARTING DATA PREPARATION
+============================================================
+
+========== DATA INFO ==========
+
+Dataset shape:
+(24783, 2)
+
+Columns:
+['class', 'tweet']
+
+First 5 rows:
+   class                                              tweet
+0      2  !!! RT @mayasolovely: As a woman you shouldn't...
+1      1  !!!!! RT @mleew17: boy dats cold...tyga dwn ba...
+2      1  !!!!!!! RT @UrKindOfBrand Dawg!!!! RT @80sbaby...
+3      1  !!!!!!!!! RT @C_G_Anderson: @viva_based she lo...
+4      1  !!!!!!!!!!!!! RT @ShenikaRoberts: The shit you...
+
+Data types:
+class    int64
+tweet      str
+dtype: object
+
+Missing values:
+class    0
+tweet    0
+dtype: int64
+
+Duplicate rows:
+0
+
+Class distribution:
+class
+0     1430
+1    19190
+2     4163
+Name: count, dtype: int64
+
+Class distribution (%):
+class
+0     5.77
+1    77.43
+2    16.80
+Name: proportion, dtype: float64
+
+========== DATA CLEANING ==========
+
+Rows before cleaning: 24783
+Rows after cleaning:  24783
+Rows removed:        0
+
+========== TEXT PREPROCESSING ==========
+
+Text preprocessing completed.
+
+Tokenizer created successfully.
+Vocabulary size: 19766
+
+Maximum sequence length: 29
+Padded data shape: (24781, 29)
+
+Data split completed.
+Training samples: 19824
+Testing samples:  4957
+
+Tokenizer saved to output_private\tokenizer.pkl
+
+============================================================
+DATA PREPARATION COMPLETED
+============================================================
+
+X_train shape: (19824, 29)
+X_test shape:  (4957, 29)
+
+y_train shape: (19824,)
+y_test shape:  (4957,)
+
+Number of classes: 3
+Classes: [np.int64(0), np.int64(1), np.int64(2)]
+
+Maximum sequence length: 29
+
+Tokenizer saved to:
+output_private\tokenizer.pkl
+
+============================================================
+CHECKING DATA FOR RNN
+============================================================
+
+X_train shape: (19824, 29)
+X_test shape: (4957, 29)
+
+y_train shape: (19824,)
+y_test shape:  (4957,)
+
+y_train type: int64
+y_test type:  int64
+
+Unique training labels: [np.int64(0), np.int64(1), np.int64(2)]
+
+Vocabulary size: 19767
+Maximum sequence length: 29
+Number of classes: 3
+
+============================================================
+RNN MODEL
+============================================================
+
+Model: "sequential"
+
+Layer (type)              Output Shape        Param #
+------------------------------------------------------
+embedding (Embedding)     ?                   0
+simple_rnn (SimpleRNN)    ?                   0
+dropout (Dropout)         ?                   0
+dense (Dense)             ?                   0
+dropout_1 (Dropout)       ?                   0
+dense_1 (Dense)           ?                   0
+
+Total params: 0 (0.00 B)
+Trainable params: 0 (0.00 B)
+Non-trainable params: 0 (0.00 B)
+
+============================================================
+TRAINING RNN
+============================================================
+
+Epoch 1/5
+...
+Epoch training output continued for the remaining epochs.
+
+Final training result:
+
+accuracy: 0.2000
+val_accuracy: 0.8716
+val_loss: 0.3850
+
+============================================================
+RNN TRAINING COMPLETED
+============================================================
+
+============================================================
+STARTING DATA PREPARATION
+============================================================
+
+========== DATA INFO ==========
+
+Dataset shape:
+(24783, 2)
+
+Columns:
+['class', 'tweet']
+
+First 5 rows:
+   class                                              tweet
+0      2  !!! RT @mayasolovely: As a woman you shouldn't...
+1      1  !!!!! RT @mleew17: boy dats cold...tyga dwn ba...
+2      1  !!!!!!! RT @UrKindOfBrand Dawg!!!! RT @80sbaby...
+3      1  !!!!!!!!! RT @C_G_Anderson: @viva_based she lo...
+4      1  !!!!!!!!!!!!! RT @ShenikaRoberts: The shit you...
+
+Data types:
+class    int64
+tweet      str
+dtype: object
+
+Missing values:
+class    0
+tweet    0
+dtype: int64
+
+Duplicate rows:
+0
+
+Class distribution:
+class
+0     1430
+1    19190
+2     4163
+Name: count, dtype: int64
+
+Class distribution (%):
+class
+0     5.77
+1    77.43
+2    16.80
+Name: proportion, dtype: float64
+
+========== DATA CLEANING ==========
+
+Rows before cleaning: 24783
+Rows after cleaning:  24783
+Rows removed:        0
+
+========== TEXT PREPROCESSING ==========
+
+Text preprocessing completed.
+
+Tokenizer created successfully.
+Vocabulary size: 19766
+
+Maximum sequence length: 29
+Padded data shape: (24781, 29)
+
+Data split completed.
+Training samples: 19824
+Testing samples:  4957
+
+Tokenizer saved to output_private\tokenizer.pkl
+
+============================================================
+DATA PREPARATION COMPLETED
+============================================================
+
+X_train shape: (19824, 29)
+X_test shape:  (4957, 29)
+
+y_train shape: (19824,)
+y_test shape:  (4957,)
+
+Number of classes: 3
+Classes: [np.int64(0), np.int64(1), np.int64(2)]
+
+Maximum sequence length: 29
+
+Tokenizer saved to:
+output_private\tokenizer.pkl
+
+Calculated class weights:
+Class 0: 5.7762
+Class 1: 0.4305
+Class 2: 1.9850
+
+============================================================
+LSTM DATA
+============================================================
+
+Vocabulary size: 19767
+Maximum sequence length: 29
+Number of classes: 3
+
+============================================================
+LSTM MODEL
+============================================================
+
+Model: "sequential"
+
+Layer (type)              Output Shape        Param #
+------------------------------------------------------
+embedding (Embedding)     ?                   0
+lstm (LSTM)               ?                   0
+dropout (Dropout)         ?                   0
+dense (Dense)             ?                   0
+dropout_1 (Dropout)       ?                   0
+dense_1 (Dense)           ?                   0
+
+Total params: 0 (0.00 B)
+Trainable params: 0 (0.00 B)
+Non-trainable params: 0 (0.00 B)
+
+============================================================
+LSTM TRAINING
+============================================================
+
+Epoch training output continued for the remaining epochs.
+
+Final training result:
+
+accuracy: 0.2637
+val_accuracy: 0.8040
+val_loss: 0.5994
+
+============================================================
+LSTM TRAINING COMPLETED
+============================================================
+
